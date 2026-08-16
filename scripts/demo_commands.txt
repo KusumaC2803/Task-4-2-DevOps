@@ -1,0 +1,11 @@
+# Start API
+uvicorn app.main:app --host 127.0.0.1 --port 8000
+
+# Run tests in another terminal
+pytest -q
+
+# Run load readiness check
+python scripts/load_check.py --requests 100 --workers 10 --target-p95-ms 200
+
+# Optional: stronger sample
+python scripts/load_check.py --requests 200 --workers 20 --target-p95-ms 200
